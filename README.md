@@ -74,7 +74,7 @@ Create a `.env` file inside the `backend/` folder:
 
 ```env
 PORT=8000
-MONGODB_URI=mongodb://localhost:27017/pos_db
+DATABASE_URL=mongodb://localhost:27017/pos_db
 JWT_SECRET=your_jwt_secret
 JWT_EXPIRES_IN='1d'
 PORT=8000
