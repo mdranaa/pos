@@ -4,7 +4,7 @@ A complete full-stack Point of Sale (POS) system built with:
 
 - ⚛️ **Frontend**: React.js + Vite
 - 🚀 **Backend**: NestJS (Node.js)
-- 🍃 **Database**: MongoDB
+- 🍃 **Database**: MongoDB + Prisma ORM
 - 📦 **Package Manager**: pnpm
 - 🔌 **API**: REST API
 
@@ -45,8 +45,8 @@ Ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repo-url>
-cd project-root
+git clone https://github.com/mdranaa/pos
+cd pos
 ```
 
 ---
@@ -61,8 +61,9 @@ cd frontend
 pnpm install
 
 # Backend
-cd ../backend
+cd backend
 pnpm install
+npx prisma generate
 ```
 
 ---
@@ -75,6 +76,9 @@ Create a `.env` file inside the `backend/` folder:
 PORT=8000
 MONGODB_URI=mongodb://localhost:27017/pos_db
 JWT_SECRET=your_jwt_secret
+JWT_EXPIRES_IN='1d'
+PORT=8000
+CLIENT_URL=http://localhost:5173
 ```
 
 > ✅ Replace values as needed. For MongoDB Atlas, use your connection string.
@@ -94,15 +98,11 @@ pnpm run start:dev
 
 ### 3. Environment Variables
 
-Create a `.env` file inside the `backend/` folder:
+Create a `.env` file inside the `frontend/` folder:
 
 ```env
-PORT=8000
-MONGODB_URI=mongodb://localhost:27017/pos_db
-JWT_SECRET=your_jwt_secret
+VITE_SERVER_URL=http://localhost:8000
 ```
-
-> ✅ Replace values as needed. For MongoDB Atlas, use your connection string.
 
 ---
 
@@ -128,21 +128,18 @@ pnpm run dev
 
 ### 📦 Products
 
-| Method | Endpoint        | Description            |
-| ------ | --------------- | ---------------------- |
-| GET    | `/products`     | Get all products       |
-| GET    | `/products/:id` | Get product by ID      |
-| POST   | `/products`     | Create a new product   |
-| PUT    | `/products/:id` | Update an existing one |
-| DELETE | `/products/:id` | Delete a product       |
+| Method | Endpoint        | Description          |
+| ------ | --------------- | -------------------- |
+| GET    | `/products`     | Get all products     |
+| GET    | `/products/:id` | Get product by ID    |
+| POST   | `/products`     | Create a new product |
 
 ### 🧾 Sales
 
-| Method | Endpoint     | Description       |
-| ------ | ------------ | ----------------- |
-| GET    | `/sales`     | Get all sales     |
-| GET    | `/sales/:id` | Get sale by ID    |
-| POST   | `/sales`     | Create a new sale |
+| Method | Endpoint | Description       |
+| ------ | -------- | ----------------- |
+| GET    | `/sales` | Get all sales     |
+| POST   | `/sales` | Create a new sale |
 
 > ⚠️ **Secure Routes** require a JWT token in the `Authorization` header:
 
