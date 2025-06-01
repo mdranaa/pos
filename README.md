@@ -212,21 +212,13 @@ Use Postman, Insomnia, or browser DevTools to test your REST API at:
 
 ## 📄 License
 
-MIT License © [Your Name]
+MIT License © [Rana Ahammed]
 
 ---
 
 ## 🙋‍♂️ Author
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: you@example.com
+- GitHub: [@mdranaa](https://github.com/mdranaa)
+- Email: rana.ahammed.012@gmail.com
 
 ---
-
-## ✅ To Do / Enhancements
-
-- [ ] Add role-based access (admin/cashier)
-- [ ] Add Swagger API Docs (`@nestjs/swagger`)
-- [ ] Add Docker support
-- [ ] Deploy backend (e.g. Railway, Render)
-- [ ] Deploy frontend (e.g. Vercel, Netlify)
