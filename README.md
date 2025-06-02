@@ -2,8 +2,8 @@
 
 A complete full-stack Point of Sale (POS) system built with:
 
-- ⚛️ **Frontend**: React.js + Vite
-- 🚀 **Backend**: NestJS (Node.js)
+- ⚛️ **Client**: React.js + Vite
+- 🚀 **Server**: NestJS (Node.js)
 - 🍃 **Database**: MongoDB + Prisma ORM
 - 📦 **Package Manager**: pnpm
 - 🔌 **API**: REST API
@@ -12,8 +12,8 @@ A complete full-stack Point of Sale (POS) system built with:
 
 ## 🌐 URLs
 
-- **Frontend**: [http://localhost:5173](http://localhost:5173)
-- **Backend API**: [http://localhost:8000](http://localhost:8000)
+- **Client**: [http://localhost:5173](http://localhost:5173)
+- **Server API**: [http://localhost:8000](http://localhost:8000)
 
 ---
 
@@ -22,8 +22,9 @@ A complete full-stack Point of Sale (POS) system built with:
 ```
 project-root/
 │
-├── frontend/     → React + Vite frontend
-├── backend/      → NestJS backend (REST API)
+├── client/     → React + Vite Client
+├── server/      → NestJS Server (REST API)
+└── screenshots     → Screenshots of this project
 └── README.md     → Project instructions and docs
 ```
 
@@ -56,21 +57,20 @@ cd pos
 Using pnpm:
 
 ```bash
-# Frontend
-cd frontend
+# Client
+cd client
 pnpm install
 
-# Backend
-cd backend
+# Server
+cd server
 pnpm install
-npx prisma generate
 ```
 
 ---
 
 ### 3. Environment Variables
 
-Create a `.env` file inside the `backend/` folder:
+Create a `.env` file inside the `Server/` folder:
 
 ```env
 PORT=8000
@@ -87,10 +87,12 @@ CLIENT_URL=http://localhost:5173
 
 ### 4. Run Development Servers
 
-#### Backend (NestJS)
+#### Server (NestJS)
 
 ```bash
-cd backend
+cd server
+npx prisma generate
+npx prisma db push
 pnpm run start:dev
 ```
 
@@ -98,7 +100,7 @@ pnpm run start:dev
 
 ### 3. Environment Variables
 
-Create a `.env` file inside the `frontend/` folder:
+Create a `.env` file inside the `client/` folder:
 
 ```env
 VITE_SERVER_URL=http://localhost:8000
@@ -106,10 +108,10 @@ VITE_SERVER_URL=http://localhost:8000
 
 ---
 
-#### Frontend (React + Vite)
+#### Client (React + Vite)
 
 ```bash
-cd frontend
+cd client
 pnpm run dev
 ```
 
@@ -169,23 +171,23 @@ Add screenshots to the `screenshots/` folder and display them here.
 
 ## 📦 Build for Production
 
-### Frontend
+### Client
 
 ```bash
-cd frontend
+cd client
 pnpm run build
 ```
 
-> Output in `frontend/dist/`
+> Output in `client/dist/`
 
-### Backend
+### Server
 
 ```bash
-cd backend
+cd server
 pnpm run build
 ```
 
-> Compiled files in `backend/dist/`
+> Compiled files in `server/dist/`
 
 ---
 
@@ -195,7 +197,7 @@ Want containerized deployment?
 
 Ask to add:
 
-- `Dockerfile` for frontend & backend
+- `Dockerfile` for Client & Server
 - `docker-compose.yml` for the full stack
 
 ---
